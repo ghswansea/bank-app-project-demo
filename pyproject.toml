@@ -1,0 +1,13 @@
+[tool.black]
+line-length = 127
+target-version = ['py311']
+extend-exclude = '.venv'
+
+[tool.isort]
+profile = "black"
+line_length = 127
+skip_gitignore = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"

@@ -1,0 +1,25 @@
+title = "Bank App Secret Scanning"
+
+[[rules]]
+id = "generic-api-key"
+description = "Generic API Key"
+regex = '''(?i)(api[_-]?key|apikey|api[_-]?secret)["\s:=]+[^\s"]{20,}'''
+keywords = ["api"]
+
+[[rules]]
+id = "aws-access-key"
+description = "AWS Access Key"
+regex = '''(AKIA|ASIA)[0-9A-Z]{16}'''
+
+[[rules]]
+id = "database-password"
+description = "Database password in connection string"
+regex = '''(mysql|postgres|mongodb):\/\/[^:]+:([^\s@]+)@'''
+
+[allowlist]
+regexes = [
+  "password1",
+  "password2",
+  "dev-secret",
+  "test-secret",
+]
