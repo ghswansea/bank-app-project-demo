@@ -1,0 +1,40 @@
+replicaCount: 1
+
+image:
+  repository: ghcr.io/ghswansea/bank-app-project-demo
+  tag: "latest"
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 5000
+
+resources: {}
+
+livenessProbe:
+  enabled: true
+  path: /health
+  port: 5000
+  initialDelaySeconds: 10
+  periodSeconds: 10
+
+readinessProbe:
+  enabled: true
+  path: /health
+  port: 5000
+  initialDelaySeconds: 5
+  periodSeconds: 5
+
+ingress:
+  enabled: false
+  annotations: {}
+  hosts:
+    - host: bank-app.local
+      paths:
+        - /
+
+resources: {}
+
+nodeSelector: {}
+tolerations: []
+affinity: {}
