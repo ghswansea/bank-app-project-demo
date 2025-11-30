@@ -9,9 +9,11 @@ USERS = {
     "bob": {"password": "password2", "balance": 500.0},
 }
 
+
 @bp.route("/", methods=["GET"])
 def home():
     return jsonify({"message": "API is running"})
+
 
 @bp.route("/health", methods=["GET"])
 def health():

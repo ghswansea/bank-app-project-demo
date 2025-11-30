@@ -3,7 +3,13 @@ name: Hello CI
 on: [push]
 
 jobs:
-    build:
+    hello-hi:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Say Hi
+              run: echo "Hello, Hi!"
+    
+    hello-world:
         runs-on: ubuntu-latest
         steps:
             - name: Say Hello

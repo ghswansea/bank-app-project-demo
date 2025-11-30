@@ -20,18 +20,18 @@ def test_health(client):
 
 def test_login_and_balance_and_transfer(client):
     # login alice
-    r = client.post('/login', json={"username": "alice", "password": "password1"})
+    r = client.post("/login", json={"username": "alice", "password": "password1"})
     assert r.status_code == 200
     token = r.get_json()["token"]
 
     # check balance
-    r = client.get('/balance', headers={"Authorization": f"Bearer {token}"})
+    r = client.get("/balance", headers={"Authorization": f"Bearer {token}"})
     assert r.status_code == 200
     data = r.get_json()
     assert data["user"] == "alice"
 
     # transfer to bob
-    r = client.post('/transfer', json={"to": "bob", "amount": 10}, headers={"Authorization": f"Bearer {token}"})
+    r = client.post("/transfer", json={"to": "bob", "amount": 10}, headers={"Authorization": f"Bearer {token}"})
     assert r.status_code == 200
     data = r.get_json()
     assert data["status"] == "success"

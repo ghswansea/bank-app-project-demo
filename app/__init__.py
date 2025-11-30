@@ -7,6 +7,7 @@ def create_app(config=None):
         app.config.update(config)
 
     from . import main
+
     app.register_blueprint(main.bp)
 
     return app
