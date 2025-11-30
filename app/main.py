@@ -1,4 +1,5 @@
-from flask import Blueprint, request, jsonify, current_app
+from flask import Blueprint, current_app, jsonify, request
+
 from .auth import create_token, require_token
 
 bp = Blueprint("main", __name__)

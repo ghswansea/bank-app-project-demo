@@ -1,10 +1,11 @@
-import time
-import hmac
-import hashlib
 import base64
+import hashlib
+import hmac
 import json
+import time
 from functools import wraps
-from flask import request, jsonify, current_app
+
+from flask import current_app, jsonify, request
 
 
 def create_token(payload: dict, secret: str, ttl: int = 3600) -> str:
